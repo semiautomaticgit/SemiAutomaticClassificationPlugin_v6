@@ -1,0 +1,198 @@
+[general]
+name=Semi-Automatic Classification Plugin
+qgisMinimumVersion=3.00
+description= The Semi-Automatic Classification Plugin (SCP) allows for the supervised classification of remote sensing images, providing tools for the download, the preprocessing and postprocessing of images.
+version=6.4.7
+about=Developed by Luca Congedo, the Semi-Automatic Classification Plugin (SCP) allows for the supervised classification of remote sensing images, providing tools for the download, the preprocessing and postprocessing of images. Search and download is available for ASTER, Landsat, MODIS, Sentinel-2, and Sentinel-3 images. Several algorithms are available for the land cover classification. This plugin requires the installation of GDAL, OGR, Numpy, SciPy, and Matplotlib. For more information please visit https://fromgistors.blogspot.com .
+
+author=Luca Congedo
+email=ing.congedoluca@gmail.com
+category=Raster
+
+icon=semiautomaticclassificationplugin.png
+
+; start of optional metadata
+changelog=
+	
+	6.4.7
+	Minor update:
+	-fixed Scipy dependency issue crash related to https://github.com/qgis/QGIS/issues/38372
+	-fixed select by layer
+	
+	6.4.6
+	Minor update:
+	-fixed time issue (thanks to Sayantan Majumdar)
+	
+	6.4.5
+	Minor update:
+	-fixed accuracy issue if Standard Error is nan
+	
+	6.4.4
+	Minor update:
+	-fixed Sentinel-3 search
+	
+	6.4.3
+	Minor update:
+	-several improvements to French translation of the interface (many thanks to Antoine Denis)
+	
+	6.4.2
+	Minor update:
+	-fixed issue with coordinates using GDAL 3
+	
+	6.4.1
+	Minor update:
+	-manual ROI creation allowed without band set definition
+	-fixed edit raster tool to update raster view
+	-fixed the tools Accuracy and Cross Classification
+	-added GDAL test
+	-fixed report tool to hide nodata
+	
+	6.4.0
+	Major update:
+	-in Multiple ROI creation tool added a stratification option based on raster values
+	-in Accuracy tool added the calculation of area based error matrix
+	-optimization of raster computation for several functions such as DOS1 and accuracy and classification report
+	-fixed symbology of classification raster
+	-bugfixing
+	
+	6.3.1
+	Minor update:
+	-fixed issue #63 with matplotlib API change
+	
+	6.3.0
+	Major update:
+	-added SWIR1 and SWIR2 variables in Band calc
+	-added NBR calculation in Band calc index calculation
+	-fixed issue with OSM tile service
+	-fixed issue with USGS Spectral Library v.6
+	-fixed issue with band set creation after multiple image download
+	-fixed issue with band calc name of outputs
+	
+	6.2.9
+	Minor update:
+	-fixed issue #53
+	-minor fixing
+	
+	Minor update:
+	-fixed Spanish language (thanks to enzopolo)
+	
+	6.2.7
+	Minor update:
+	-fixed issues with raster coordinate reference system
+	
+	6.2.6
+	Minor update:
+	-fixed small issues with French translation
+	
+	6.2.5
+	Minor update:
+	-closed issue #46 with the erosion tool
+	-added French translation of the SCP interface (translated by Sebastien Peillet)
+	
+	6.2.4
+	Minor update:
+	-fixed issue with Landsat search
+	
+	6.2.3
+	Minor update:
+	-fixed issue with Sentinel-2 search
+	
+	6.2.2
+	Minor update:
+	-fixed issue with Band calc NoData value
+	
+	6.2.1
+	Minor update:
+	-fixed issue importing spectral signatures as csv
+	
+	6.2.0
+	Major update:
+	-added button generating a kml file useful for displaying the classification preview in other programs
+	-fixed Batch function reclassification, now _ is used for separating old values and new values
+	-fixed issue when checking if classification array is None
+
+	6.1.5
+	Minor update:
+	-fixed Sentinel-2 download of level 2A images
+	-fixed issue of the tool Spectral distance
+	
+	6.1.4
+	Minor update:
+	-fixed #36
+	
+	6.1.3
+	Minor update:
+	-bug fixing
+	
+	6.1.2
+	Minor update:
+	-fixed #33
+	
+	6.1.1
+	Minor update:
+	-added compatibility for DN conversion of Landsat surface reflectance products
+	
+	6.1.0
+	Major update:
+	-new button in Download products tab for adding OpenStreetMap to the map
+	-fixed bugs
+	
+	6.0.4
+	Minor update:
+	-fixed bug related to QgsMessageBar INFO when missing dependency
+	
+	6.0.3
+	Minor update:
+	-fixed #32
+	
+	6.0.2
+	Minor update:
+	-fixed bug related to missing QgsMessageBar INFO
+	
+	6.0.1
+	Minor update:
+	-fixed #28
+	
+	6.0.0
+	Major update:
+	-version updated for QGIS 3
+	-updated the Main interface with new tabs and design
+	-in tab Band set added option for multiple band set definition that can be moved and closed
+	-in tab Band set quick wavelength set according to band number of sensor
+	-new tab Download products for searching and downloading free images and products
+	-in tab Download products added download and preprocessing of Sentinel-2 Level 2A
+	-in tab Download products added download of Sentinel-3 OLCI
+	-in tab Download products added image preview with click on Product list items
+	-in tab Download products added option to import and export table of product download
+	-in tab Download products the Product list is saved with the project
+	-in tabs Landsat Sentinel-2 and ASTER added option to limit DOS1 correction only to blue and green bands
+	-in tab Preprocessing added tool for Sentinel-3 OLCI
+	-in tab Preprocessing added tool Mosaic band sets for the creation of multiband mosaics
+	-in tab Preprocessing added tool Cloud masking of a band set which is based on the values of a classification
+	-in tab Band processing added tool Clustering with K-means and ISODATA algorithms
+	-in tab Band processing added tool Spectral distance for calculating pixel distance between two band sets
+	-in tab Band processing added tool Band combination for calculating a raster of band combinations from a band set
+	-in tab Postprocessing added tool Class signature for calculating the spectral signatures of classes in a classification using a band set
+	-in tab ROI Creation added option to autosave training input (backup file created when saving QGIS project)
+	-in tab Clip Multiple Rasters added option to select a vector field for iterating through each vector polygon and add field value to the output name
+	-in Working toolbar added possibility to plot spectral signatures of the same pixel for all the band sets (pressing the button ROI region growing then CTRL + mouse right click in the map)
+	-in tab Classification the threshold value if > 0 is used for all the spectral signatures;
+	-in tab Edit raster added vector as variable name for using vector value in expression
+	-in tab Batch added several new functions and changed some of the function variable names
+	-in tab Batch added label for checking the expression
+	-in tab Batch added table containing the list of functions
+	-in tab Settings Processing added SMTP process notification
+	-in tab Settings Debug added table of Log
+	-in tab Multiple ROI creation now can import a point shapefile for point coordinates
+	-in tab Multiple ROI creation the random point creation avoids raster NoData
+	-in Spectral Signature Plot fixed signature plot for large values
+	-various bugfixing and improvements 
+
+experimental=False
+deprecated=False
+
+tags = Raster, Classification, Land Cover, Remote Sensing, Analysis, Landsat, Sentinel, Supervised classification, Spectral signature, Mask, Clip, Accuracy, Landscape
+
+homepage=https://fromgistors.blogspot.com/p/semi-automatic-classification-plugin.html
+tracker=https://github.com/semiautomaticgit/SemiAutomaticClassificationPlugin/issues
+repository=https://github.com/semiautomaticgit/SemiAutomaticClassificationPlugin
